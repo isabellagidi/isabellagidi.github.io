@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isabella Gidi</title>
+  <meta name="description" content="Isabella Gidi: student at Harvard.">
+  <meta property="og:title" content="Isabella Gidi">
+  <meta property="og:description" content="Student at Harvard.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="photo.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23a0594a'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23faf6f0' text-anchor='middle'%3EIG%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #faf6f0;
+      --ink: #2b2622;
+      --muted: #6b625a;
+      --accent: #a0594a;
+      --rule: #e3d9cc;
+      --shadow: rgba(80, 55, 40, 0.14);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1916;
+        --ink: #f1e9df;
+        --muted: #b5aa9e;
+        --accent: #d99482;
+        --rule: #3a342e;
+        --shadow: rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1.5rem;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "EB Garamond", Garamond, Georgia, serif;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      width: 100%;
+      max-width: 34rem;
+      text-align: center;
+    }
+
+    .photo {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      padding: 5px;
+      border: 1px solid var(--accent);
+      box-shadow: 0 12px 30px var(--shadow);
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 300;
+      font-size: clamp(2.6rem, 8vw, 3.4rem);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin: 1.75rem 0 0.4rem;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      width: 9rem;
+      margin: 2rem auto;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .blurb {
+      text-align: left;
+      margin: 0;
+    }
+    .blurb + .blurb { margin-top: 1rem; }
+
+    nav {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem 0.9rem;
+      font-variant: small-caps;
+      letter-spacing: 0.08em;
+      font-size: 1.2rem;
+    }
+    nav .dot { color: var(--rule); }
+
+    nav a {
+      position: relative;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.1em;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus-visible { color: var(--accent); }
+    nav a:hover::after,
+    nav a:focus-visible::after { transform: scaleX(1); }
+
+    /* gentle staggered fade-in */
+    .fade {
+      opacity: 0;
+      transform: translateY(8px);
+      animation: rise 0.9s ease forwards;
+    }
+    .fade:nth-child(2) { animation-delay: 0.1s; }
+    .fade:nth-child(3) { animation-delay: 0.2s; }
+    .fade:nth-child(4) { animation-delay: 0.3s; }
+    .fade:nth-child(5) { animation-delay: 0.4s; }
+    .fade:nth-child(6) { animation-delay: 0.5s; }
+    @keyframes rise {
+      to { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade { animation: none; opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="photo fade" src="photo.jpg" alt="Photo of Isabella Gidi">
+
+    <h1 class="fade">Isabella Gidi</h1>
+
+    <!-- TODO: edit your tagline -->
+    <p class="tagline fade">Student at Harvard &middot; your research interests</p>
+
+    <div class="divider fade" aria-hidden="true">&#10043;</div>
+
+    <!-- TODO: replace with your own blurb -->
+    <div class="fade">
+      <p class="blurb">
+        Hi! I'm Isabella, a student at Harvard. I'm interested in [your
+        research interests here]. Currently, I'm working on [current project
+        or role].
+      </p>
+      <p class="blurb">Feel free to reach out!</p>
+    </div>
+
+    <!-- TODO: replace the YOUR-... placeholders with your real URLs -->
+    <nav class="fade">
+      <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
+      <span class="dot">&middot;</span>
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="dot">&middot;</span>
+      <a href="https://scholar.google.com/citations?user=YOUR-ID" target="_blank" rel="noopener">Google Scholar</a>
+      <span class="dot">&middot;</span>
+      <a href="https://github.com/YOUR-GITHUB" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </main>
+</body>
+</html>
